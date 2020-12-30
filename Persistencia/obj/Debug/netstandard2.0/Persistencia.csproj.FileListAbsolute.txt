@@ -1,0 +1,12 @@
+/home/wiliam/Documentos/Core/ProyectoCore/Persistencia/bin/Debug/netstandard2.0/Persistencia.deps.json
+/home/wiliam/Documentos/Core/ProyectoCore/Persistencia/bin/Debug/netstandard2.0/Persistencia.dll
+/home/wiliam/Documentos/Core/ProyectoCore/Persistencia/bin/Debug/netstandard2.0/Persistencia.pdb
+/home/wiliam/Documentos/Core/ProyectoCore/Persistencia/bin/Debug/netstandard2.0/Dominio.dll
+/home/wiliam/Documentos/Core/ProyectoCore/Persistencia/bin/Debug/netstandard2.0/Dominio.pdb
+/home/wiliam/Documentos/Core/ProyectoCore/Persistencia/obj/Debug/netstandard2.0/Persistencia.csprojAssemblyReference.cache
+/home/wiliam/Documentos/Core/ProyectoCore/Persistencia/obj/Debug/netstandard2.0/Persistencia.AssemblyInfoInputs.cache
+/home/wiliam/Documentos/Core/ProyectoCore/Persistencia/obj/Debug/netstandard2.0/Persistencia.AssemblyInfo.cs
+/home/wiliam/Documentos/Core/ProyectoCore/Persistencia/obj/Debug/netstandard2.0/Persistencia.csproj.CoreCompileInputs.cache
+/home/wiliam/Documentos/Core/ProyectoCore/Persistencia/obj/Debug/netstandard2.0/Persistencia.csproj.CopyComplete
+/home/wiliam/Documentos/Core/ProyectoCore/Persistencia/obj/Debug/netstandard2.0/Persistencia.dll
+/home/wiliam/Documentos/Core/ProyectoCore/Persistencia/obj/Debug/netstandard2.0/Persistencia.pdb

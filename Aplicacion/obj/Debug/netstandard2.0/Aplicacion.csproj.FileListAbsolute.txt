@@ -1,0 +1,14 @@
+/home/wiliam/Documentos/Core/ProyectoCore/Aplicacion/bin/Debug/netstandard2.0/Aplicacion.deps.json
+/home/wiliam/Documentos/Core/ProyectoCore/Aplicacion/bin/Debug/netstandard2.0/Aplicacion.dll
+/home/wiliam/Documentos/Core/ProyectoCore/Aplicacion/bin/Debug/netstandard2.0/Aplicacion.pdb
+/home/wiliam/Documentos/Core/ProyectoCore/Aplicacion/bin/Debug/netstandard2.0/Dominio.dll
+/home/wiliam/Documentos/Core/ProyectoCore/Aplicacion/bin/Debug/netstandard2.0/Persistencia.dll
+/home/wiliam/Documentos/Core/ProyectoCore/Aplicacion/bin/Debug/netstandard2.0/Dominio.pdb
+/home/wiliam/Documentos/Core/ProyectoCore/Aplicacion/bin/Debug/netstandard2.0/Persistencia.pdb
+/home/wiliam/Documentos/Core/ProyectoCore/Aplicacion/obj/Debug/netstandard2.0/Aplicacion.csprojAssemblyReference.cache
+/home/wiliam/Documentos/Core/ProyectoCore/Aplicacion/obj/Debug/netstandard2.0/Aplicacion.AssemblyInfoInputs.cache
+/home/wiliam/Documentos/Core/ProyectoCore/Aplicacion/obj/Debug/netstandard2.0/Aplicacion.AssemblyInfo.cs
+/home/wiliam/Documentos/Core/ProyectoCore/Aplicacion/obj/Debug/netstandard2.0/Aplicacion.csproj.CoreCompileInputs.cache
+/home/wiliam/Documentos/Core/ProyectoCore/Aplicacion/obj/Debug/netstandard2.0/Aplicacion.csproj.CopyComplete
+/home/wiliam/Documentos/Core/ProyectoCore/Aplicacion/obj/Debug/netstandard2.0/Aplicacion.dll
+/home/wiliam/Documentos/Core/ProyectoCore/Aplicacion/obj/Debug/netstandard2.0/Aplicacion.pdb
