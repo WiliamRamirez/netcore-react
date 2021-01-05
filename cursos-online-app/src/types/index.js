@@ -1,0 +1,6 @@
+export const INICIAR_SESION = "INICIAR_SESION";
+export const OBTENER_USUARIO = "OBTENER_USUARIO";
+
+
+export const OPEN_SNACKBAR = "OPEN_SNACKBAR";
+export const CLEAN_SNACKBAR = "CLEAN_SNACKBAR";
