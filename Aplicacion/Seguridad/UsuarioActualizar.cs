@@ -23,6 +23,7 @@ namespace Aplicacion.Seguridad
             public string Email { get; set; }
             public string Password { get; set; }
             public string UserName { get; set; }
+            public ImagenDTO ImagenPerfil { get; set; }
 
         }
 
@@ -67,6 +68,34 @@ namespace Aplicacion.Seguridad
                     throw new ManejadorExcepcion(HttpStatusCode.InternalServerError, new { mensaje = "Este Email Pertenece a otro usuario" });
                 }
 
+                var resultadoImagen = await _context.Documento.Where(x => x.ObjetoReferencia == new Guid(userIden.Id)).FirstOrDefaultAsync();
+
+                if (request.ImagenPerfil != null)
+                {
+
+                    if (resultadoImagen == null)
+                    {
+                        var imagen = new Documento
+                        {
+                            Contenido = System.Convert.FromBase64String(request.ImagenPerfil.Data),
+                            Nombre = request.ImagenPerfil.Nombre,
+                            Extension = request.ImagenPerfil.Extension,
+                            ObjetoReferencia = new Guid(userIden.Id),
+                            DocumentoId = Guid.NewGuid(),
+                            FechaCreacion = DateTime.UtcNow
+                        };
+
+                        _context.Documento.Add(imagen);
+                    }
+                    else
+                    {
+                        resultadoImagen.Contenido = System.Convert.FromBase64String(request.ImagenPerfil.Data) ?? resultadoImagen.Contenido;
+                        resultadoImagen.Nombre = request.ImagenPerfil.Nombre ?? resultadoImagen.Nombre;
+                        resultadoImagen.Extension = request.ImagenPerfil.Extension ?? resultadoImagen.Extension;
+                    }
+
+                }
+
                 userIden.NombreCompleto = request.NombreCompleto;
                 userIden.Email = request.Email;
                 userIden.PasswordHash = _passwordHasher.HashPassword(userIden, request.Password);
@@ -77,20 +106,32 @@ namespace Aplicacion.Seguridad
 
                 var listRoles = new List<string>(resultRoles);
 
+                var imagenPerfil = await _context.Documento.Where(x => x.ObjetoReferencia == new Guid(userIden.Id)).FirstOrDefaultAsync();
+
+                ImagenDTO imagenCliente = null;
+
+                if (imagenPerfil != null)
+                {
+                    imagenCliente = new ImagenDTO
+                    {
+                        Data = Convert.ToBase64String(imagenPerfil.Contenido),
+                        Extension = imagenPerfil.Extension,
+                        Nombre = imagenPerfil.Nombre
+                    };
+
+                }
 
                 if (resultUpdate.Succeeded)
                 {
                     return new UsuarioData
                     {
-
                         NombreCompleto = userIden.NombreCompleto,
+                        Token = _jwtGenerador.CrearToken(userIden, listRoles),
                         Username = userIden.UserName,
                         Email = userIden.Email,
-                        Token = _jwtGenerador.CrearToken(userIden, listRoles)
-
+                        ImagenPerfil = imagenCliente
                     };
                 }
-
 
                 throw new Exception("No se pudo actualizar el usuario");
             }

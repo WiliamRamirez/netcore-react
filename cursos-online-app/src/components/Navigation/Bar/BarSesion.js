@@ -7,12 +7,12 @@ import {
   Toolbar,
   Typography,
 } from "@material-ui/core";
-import React, { Fragment, useContext, useEffect, useState } from "react";
+import React, { Fragment, useState } from "react";
 import { withRouter } from "react-router-dom";
-import AuthContext from "../../../context/auth/authContext";
 import FotoUsuario from "../../../logo.svg";
 import MenuLeft from "./MenuLeft";
 import MenuRight from "./MenuRight";
+import { useStateValue } from "../../../context/Store";
 
 const useStyles = makeStyles((theme) => ({
   seccionDesktop: {
@@ -45,11 +45,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 const BarSesion = (props) => {
   const classes = useStyles();
 
-  const authContext = useContext(AuthContext);
-  const { usuario, usuarioAutenticado } = authContext;
+  const [{ auth }] = useStateValue();
+
+  const {usuario} = auth;
 
   const [stateMenuLeft, setStateMenuLeft] = useState(false);
 
@@ -76,10 +78,7 @@ const BarSesion = (props) => {
     props.history.push("/auth/login");
   };
 
-  useEffect(() => {
-    usuarioAutenticado();
-    // eslint-disable-next-line
-  }, []);
+
 
   return (
     <Fragment>
@@ -117,7 +116,7 @@ const BarSesion = (props) => {
 
         {usuario ? (
           <div className={classes.seccionDesktop}>
-            <Avatar src={FotoUsuario}></Avatar>
+            <Avatar src={ usuario.imagenPerfil || FotoUsuario}></Avatar>
             <Button color="inherit"> {usuario.nombreCompleto} </Button>
             <Button color="inherit" onClick={closeSessionApp}>
               Salir

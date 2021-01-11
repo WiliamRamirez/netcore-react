@@ -14,7 +14,7 @@ const MenuRight = ({ classes, usuario, salirSesion }) => {
     <div className={classes.list}>
       <List>
         <ListItem button component={Link}>
-          <Avatar src={usuario.foto || FotoUsuario} />
+          <Avatar src={usuario.imagenPerfil || FotoUsuario} />
           <ListItemText
             classes={{ primary: classes.listItemText }}
             primary={usuario ? usuario.nombreCompleto : ""}
