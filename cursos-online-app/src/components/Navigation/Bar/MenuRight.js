@@ -25,7 +25,7 @@ const MenuRight = ({ classes, usuario, salirSesion }) => {
       <Divider />
 
       <List>
-        <ListItem button component={Link}>
+        <ListItem button onClick={salirSesion} component={Link}>
           <i className="material-icons"> exit_to_app</i>
           <ListItemText
             classes={{ primary: classes.listItemText }}

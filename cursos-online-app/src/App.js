@@ -10,9 +10,9 @@ import { Fragment, useEffect, useState } from "react";
 import { obtenerUsuarioActual } from "./actions/UsuarioAction";
 import { useStateValue } from "./context/Store";
 import { CLEAN_SNACKBAR } from "./types";
+import RutaSegura from "./components/Navigation/RutaSegura";
 
 function App() {
-  
   const [{ snackbar }, dispatch] = useStateValue();
 
   const [startApp, setStartApp] = useState(false);
@@ -30,25 +30,24 @@ function App() {
     // eslint-disable-next-line
   }, [startApp]);
 
-  return startApp === false ? null : (
+  return startApp === false ? null :  (
     <Fragment>
+      <Snackbar
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        open={snackbar ? snackbar.open : false}
+        autoHideDuration={3000}
+        ContentProps={{ "aria-describedby": "message-id" }}
+        message={
+          <span id="message-id">{snackbar ? snackbar.mensaje : ""} </span>
+        }
+        onClose={() =>
+          dispatch({
+            type: CLEAN_SNACKBAR,
+          })
+        }
+      ></Snackbar>
       <Router>
         <MuiThemeProvider theme={theme}>
-          <Snackbar
-            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-            open={snackbar ? snackbar.open : false}
-            autoHideDuration={3000}
-            ContentProps={{ "aria-describedby": "message-id" }}
-            message={
-              <span id="message-id">{snackbar ? snackbar.mensaje : ""} </span>
-            }
-            onClose={() =>
-              dispatch({
-                type: CLEAN_SNACKBAR,
-              })
-            }
-          ></Snackbar>
-
           <AppNavbar />
           <Grid container>
             <Switch>
@@ -58,7 +57,8 @@ function App() {
                 path="/auth/registrar"
                 component={RegistrarUsuario}
               />
-              <Route exact path="/auth/perfil" component={PerfilUsuario} />
+
+              <RutaSegura exact path="/auth/perfil" component={PerfilUsuario} />
             </Switch>
           </Grid>
         </MuiThemeProvider>

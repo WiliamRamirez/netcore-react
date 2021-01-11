@@ -9,8 +9,14 @@ import React, { useState } from "react";
 import style from "../tools/Style";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import { loginUsuario } from "../../actions/UsuarioAction";
+import { withRouter } from "react-router-dom";
+import { useStateValue } from "../../context/Store";
+import { OPEN_SNACKBAR } from "../../types";
 
-const Login = () => {
+const Login = (props) => {
+
+  const [, dispatch] = useStateValue();
+
   const [usuario, setUsuario] = useState({
     email: "",
     password: "",
@@ -26,9 +32,19 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    loginUsuario(usuario).then((response) => {
-      console.log("login exitoso", response);
-      window.localStorage.setItem("token_seguridad", response.data.token);
+    loginUsuario(usuario, dispatch).then((response) => {
+      if (response.status === 200) {
+        window.localStorage.setItem("token_seguridad", response.data.token);
+        props.history.push("/auth/perfil");
+      } else {
+        dispatch({
+          type: OPEN_SNACKBAR,
+          payload: {
+            mensaje : "Las credenciales del usuario son incorrectas",
+            open : true
+          }
+        });
+      }
     });
   };
 
@@ -79,4 +95,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default withRouter(Login);

@@ -13,6 +13,7 @@ import FotoUsuario from "../../../logo.svg";
 import MenuLeft from "./MenuLeft";
 import MenuRight from "./MenuRight";
 import { useStateValue } from "../../../context/Store";
+import { SALIR_SESION } from "../../../types";
 
 const useStyles = makeStyles((theme) => ({
   seccionDesktop: {
@@ -49,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
 const BarSesion = (props) => {
   const classes = useStyles();
 
-  const [{ auth }] = useStateValue();
+  const [{ auth }, dispatch ] = useStateValue();
 
   const {usuario} = auth;
 
@@ -76,6 +77,14 @@ const BarSesion = (props) => {
   const closeSessionApp = () => {
     localStorage.removeItem("token_seguridad");
     props.history.push("/auth/login");
+
+    dispatch({
+      type: SALIR_SESION,
+      payload: {
+        nuevaSesion: null,
+        autenticado : false
+      },
+    });
   };
 
 

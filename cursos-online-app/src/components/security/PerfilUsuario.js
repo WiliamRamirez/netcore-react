@@ -45,6 +45,7 @@ const PerfilUsuario = () => {
     setUsuario((before) => ({
       ...before,
       imagenPerfilUrl: usuario.imagenPerfil,
+      imagenPerfil : null
     }));
   }, [usuario]);
 
@@ -92,7 +93,7 @@ const PerfilUsuario = () => {
 
   const imagenPerfilKey = uuidv4();
 
-  return (
+  return auth === false ? null : (
     <Fragment>
       <Container component="main" maxWidth="md" justify="center">
         <div style={style.paper}>
