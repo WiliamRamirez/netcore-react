@@ -11,8 +11,9 @@ namespace Aplicacion.Cursos
 {
     public class Nuevo
     {
-        public class Ejecuta : IRequest 
+        public class Ejecuta : IRequest
         {
+            public Guid? CursoId { get; set; }
             public string Titulo { get; set; }
             public string Descripcion { get; set; }
             public DateTime? FechaPublicacion { get; set; }
@@ -45,7 +46,12 @@ namespace Aplicacion.Cursos
 
             public async Task<Unit> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
+
                 Guid _cursoId = Guid.NewGuid();
+                if (request.CursoId != null)
+                {
+                    _cursoId = request.CursoId ?? Guid.NewGuid();
+                }
 
                 // Agregar precio
                 

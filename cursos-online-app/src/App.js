@@ -11,6 +11,7 @@ import { obtenerUsuarioActual } from "./actions/UsuarioAction";
 import { useStateValue } from "./context/Store";
 import { CLEAN_SNACKBAR } from "./types";
 import RutaSegura from "./components/Navigation/RutaSegura";
+import NuevoCurso from "./components/cursos/NuevoCurso";
 
 function App() {
   const [{ snackbar }, dispatch] = useStateValue();
@@ -30,7 +31,7 @@ function App() {
     // eslint-disable-next-line
   }, [startApp]);
 
-  return startApp === false ? null :  (
+  return startApp === false ? null : (
     <Fragment>
       <Snackbar
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
@@ -46,6 +47,7 @@ function App() {
           })
         }
       ></Snackbar>
+      
       <Router>
         <MuiThemeProvider theme={theme}>
           <AppNavbar />
@@ -59,6 +61,7 @@ function App() {
               />
 
               <RutaSegura exact path="/auth/perfil" component={PerfilUsuario} />
+              <RutaSegura exact path="/curso/nuevo" component={NuevoCurso} />
             </Switch>
           </Grid>
         </MuiThemeProvider>

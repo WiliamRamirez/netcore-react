@@ -10,8 +10,6 @@ using Persistencia.DapperConexion.Paginacion;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[Controller]")]
-    [ApiController]
     public class CursosController : MiControllerBase
     {
 

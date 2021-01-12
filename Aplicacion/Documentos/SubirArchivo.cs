@@ -34,13 +34,15 @@ namespace Aplicacion.Documentos
 
                 if (documento == null)
                 {
+
                     var doc = new Documento
                     {
                         Contenido = Convert.FromBase64String(request.Data),
                         Nombre = request.Nombre,
                         Extension = request.Extension,
                         DocumentoId = Guid.NewGuid(),
-                        FechaCreacion = DateTime.UtcNow
+                        FechaCreacion = DateTime.UtcNow,
+                        ObjetoReferencia = request.ObjetoReferencia ?? Guid.Empty
                     };
 
                     _context.Documento.Add(doc);
