@@ -12,6 +12,7 @@ import { useStateValue } from "./context/Store";
 import { CLEAN_SNACKBAR } from "./types";
 import RutaSegura from "./components/Navigation/RutaSegura";
 import NuevoCurso from "./components/cursos/NuevoCurso";
+import PaginadorCurso from "./components/cursos/PaginadorCurso";
 
 function App() {
   const [{ snackbar }, dispatch] = useStateValue();
@@ -47,7 +48,7 @@ function App() {
           })
         }
       ></Snackbar>
-      
+
       <Router>
         <MuiThemeProvider theme={theme}>
           <AppNavbar />
@@ -62,6 +63,12 @@ function App() {
 
               <RutaSegura exact path="/auth/perfil" component={PerfilUsuario} />
               <RutaSegura exact path="/curso/nuevo" component={NuevoCurso} />
+
+              <RutaSegura
+                exact
+                path="/curso/paginador"
+                component={PaginadorCurso}
+              />
             </Switch>
           </Grid>
         </MuiThemeProvider>
