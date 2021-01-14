@@ -176,3 +176,7 @@
 /home/wiliam/Documentos/Core/FullStack/ProyectoCore/WebAPI/obj/Debug/netcoreapp3.1/WebAPI.dll
 /home/wiliam/Documentos/Core/FullStack/ProyectoCore/WebAPI/obj/Debug/netcoreapp3.1/WebAPI.pdb
 /home/wiliam/Documentos/Core/FullStack/ProyectoCore/WebAPI/obj/Debug/netcoreapp3.1/WebAPI.genruntimeconfig.cache
+/home/wiliam/Documentos/Core/FullStack/ProyectoCore/WebAPI/bin/Debug/netcoreapp3.1/iTextSharp.LGPLv2.Core.dll
+/home/wiliam/Documentos/Core/FullStack/ProyectoCore/WebAPI/bin/Debug/netcoreapp3.1/BouncyCastle.Crypto.dll
+/home/wiliam/Documentos/Core/FullStack/ProyectoCore/WebAPI/bin/Debug/netcoreapp3.1/System.Text.Encoding.CodePages.dll
+/home/wiliam/Documentos/Core/FullStack/ProyectoCore/WebAPI/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp2.0/System.Text.Encoding.CodePages.dll
